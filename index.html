@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>113下學期程式設計期中報告</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <!-- 用於顯示嵌入網站的容器 -->
+    <div id="iframe-container" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; border: 2px solid #FFC0CB; background: white; z-index: 1000;">
+      <iframe id="portfolio-iframe" src="" style="width: 100%; height: 100%; border: none;"></iframe>
+      <button id="close-iframe" style="position: absolute; top: 10px; right: 10px; padding: 5px 10px; background-color: #FFC0CB; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">關閉</button>
+    </div>
+
+    <!-- 測驗券容器 -->
+    <div id="quiz-container" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; border: 2px solid #FFC0CB; background: white; z-index: 1000; overflow-y: auto; padding: 20px;">
+      <div id="quiz-content"></div>
+      <button id="submit-quiz" style="margin-top: 20px; padding: 10px 20px; background-color: #FFC0CB; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">提交測驗</button>
+      <button id="retry-quiz" style="margin-top: 20px; padding: 10px 20px; background-color: #FFC0CB; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; display: none;">重新作答</button>
+      <button id="close-quiz" style="margin-top: 20px; padding: 10px 20px; background-color: #FFC0CB; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">關閉</button>
+    </div>
+
+    <script>
+      function generateQuizHTML() {
+        return `
+          <h2>🎉 歡迎來參加簡單測驗！ 🎉</h2>
+          <p>問題 1: 1 + 1 = ?</p>
+          <input type="radio" name="q1" value="A"> A. 1<br>
+          <input type="radio" name="q1" value="B"> B. 2<br>
+          <input type="radio" name="q1" value="C"> C. 3<br>
+          <input type="radio" name="q1" value="D"> D. 4<br>
+
+          <p>問題 2: 哪一個是水果？</p>
+          <input type="radio" name="q2" value="A"> A. 蘋果<br>
+          <input type="radio" name="q2" value="B"> B. 鉛筆<br>
+          <input type="radio" name="q2" value="C"> C. 汽車<br>
+          <input type="radio" name="q2" value="D"> D. 書本<br>
+
+          <p>問題 3: 4 - 2 = ?</p>
+          <input type="radio" name="q3" value="A"> A. 0<br>
+          <input type="radio" name="q3" value="B"> B. 2<br>
+          <input type="radio" name="q3" value="C"> C. 3<br>
+          <input type="radio" name="q3" value="D"> D. 4<br>
+
+          <p>問題 4: 太陽是什麼顏色？</p>
+          <input type="radio" name="q4" value="A"> A. 藍色<br>
+          <input type="radio" name="q4" value="B"> B. 紅色<br>
+          <input type="radio" name="q4" value="C"> C. 黃色<br>
+          <input type="radio" name="q4" value="D"> D. 綠色<br>
+          <button id="submit-quiz">提交答案</button>
+        `;
+      }
+    </script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
